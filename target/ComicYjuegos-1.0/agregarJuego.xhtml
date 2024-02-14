@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+        <h:head>
+                <title>Agregar Juego</title>
+        </h:head>
+        <h:body>
+                <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+                        <ui:define name="content">
+                                <h:form id="addForm">
+                                        <p:panelGrid id="display" columns="4" columnClasses="label, value" >
+                                                
+                                                <h:outputText value="Nombre" />
+                                                <h:inputText value="#{juegoBean.juegoSeleccionado.nombre}" />
+
+                                                <h:outputText value="Descripcion" />
+                                                <h:inputText value="#{juegoBean.juegoSeleccionado.descripcion}" />
+                                                <p:commandButton value="Agregar" actionListener="#{juegoBean.agregarJuego()}" update="addForm:display"/>
+                                        </p:panelGrid>
+                                </h:form>
+                        </ui:define>
+                </ui:composition>
+        </h:body>
+</html>

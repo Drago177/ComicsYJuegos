@@ -1,0 +1,9 @@
+web\JuegoBean.class
+servicio\JuegoServiceRS.class
+servicio\JuegoService.class
+servicio\JuegoServiceImpl.class
+servicio\JuegoServiceWS.class
+datos\JuegoDao.class
+datos\JuegoDaoImpl.class
+web\ConfiguracionBean.class
+domain\Juego.class
