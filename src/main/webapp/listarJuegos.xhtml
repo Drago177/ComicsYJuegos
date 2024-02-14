@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+        <h:head>
+                <title>Juegos</title>
+                <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/styles.css"/>
+        </h:head>
+        <h:body>
+                <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+                        <ui:define name="content">
+                                <h:form id="juegosListForm">
+                                        <p:growl id="messages" showDetail="true" />
+                                        <p:messages/>
+
+                                        <p:dataTable id="JuegosDataTable" value="#{juegoBean.juegos}" var="juego" rowKey="#{juego.idJuego}">
+                                                <f:facet name="header">
+                                                        Listado de Juegos
+                                                </f:facet>
+
+                                                <p:column headerText="Imagen">
+                                                        <h:commandLink action="#{juegoBean.detalles(juego)}" style="text-decoration: none; color:black">
+                                                                <p:cellEditor>
+                                                                        <f:facet name="output">
+                                                                                <h:graphicImage library="images" name="#{juego.imagen}" width="800px" height="auto"/>
+                                                                        </f:facet>
+                                                                        <f:facet name="input">
+                                                                                <p:inputText value="#{juego.imagen}" />
+                                                                        </f:facet>
+                                                                </p:cellEditor>
+                                                        </h:commandLink>
+                                                </p:column>
+
+                                                <p:column headerText="Nombre">
+                                                        <h:commandLink action="#{juegoBean.detalles(juego)}" style="text-decoration: none; color:black">
+                                                                <p:cellEditor>
+                                                                        <f:facet name="output">
+                                                                                <h:outputText value="#{juego.nombre}" />
+                                                                        </f:facet>
+                                                                        <f:facet name="input">
+                                                                                <p:inputText value="#{juego.nombre}" />
+                                                                        </f:facet>
+                                                                </p:cellEditor>
+                                                        </h:commandLink>
+                                                </p:column>
+                                        </p:dataTable>
+                                </h:form>
+                        </ui:define>
+                </ui:composition>
+        </h:body>
+</html>
